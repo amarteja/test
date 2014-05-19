@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Healthy Homes Inspector Application</title>
+	<!-- Bootstrap -->
+	<link href="js/lib/css/bootstrap.min.css" rel="stylesheet">
+	
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script src="checklist-model.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	
+	<link rel="stylesheet" href="js/lib/css/slidebars.min.css">
+</head>
+<body class="container" >
+	<legend align="center">
+		<button class="btn-default toggle-left pull-left glyphicon glyphicon-align-justify"></button>
+			<div class="sb-slidebar sb-left" align="center">
+				<div class="list-group">
+					<h4 align="center"> Main Menu</h4>
+					<a  class="list-group-item list-group-item-danger" href="index.html"> Logout</a>
+					<a  class="list-group-item" href="about.html"> About</a>
+					<a  class="list-group-item" href="credits.html"> Credits</a>
+				</div>
+			</div>
+			Inspection Schedule
+		</legend><br>
+			<div ng-app="HealthyHomes">
+				<div ng-controller="schedule">
+					<p>{{message}}</p>
+					<table class="table table-striped">
+						<tr>
+							<tr>
+								<th><label for="firstname" class="col-sm-4 control-label"><h4>First Name</h4></label></th>
+								<th><label for="lastname" class="col-sm-4 control-label"><h4>Last Name</h4></label></th>
+							</tr>
+						</tr>
+						<tr ng-repeat="person in scheduler">
+							<td><button id ={{person.id}} onclick="scriptFunction(this.id)"  class="btn btn-link">{{person.Fname}}</button></td>
+							<td>{{person.Lname}}</td>
+						</tr>
+					</table>
+					<script>
+					function scriptFunction(id) 
+					{
+						localStorage.removeItem('inspectionHome');
+						var inspect = id;
+						sessionStorage.setItem('inspectionHome', inspect);
+						window.location="confidential_info.html";
+					}
+					</script>
+				</div>
+			</div>
+			<script src="jquery.min.js"></script> 
+			<script src="js/lib/js/bootstrap.min.js"></script>
+			<script src="js/lib/js/slidebars.min.js"></script>
+			<script src="js/lib/js/sliding.js"></script>
+	</body>
+</html>
+        

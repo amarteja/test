@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="HealthyHomes">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Healthy Homes Inspector Application</title>
+
+        <!-- Bootstrap -->
+        <link href="js/lib/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+        
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+    <script src="phonegap.js"></script>
+    <script type="text/javascript" src="js/lib/camera.js"></script>
+				<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="jquery.min.js"></script>
+			<!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/lib/js/bootstrap.min.js"></script>
+         <script src="checklist-model.js"></script>
+</head>
+<body>
+<div class="container" data-ng-controller="buildingCharB6">
+    <div class="row">
+        <form name="b6" class="form-horizontal">
+            <fieldset>
+                <legend>[BC] Building and Construction Characteristics</legend>
+                     <div class="panel panel-default">   
+                    <div class="panel-heading "><h3>B6. Gas Furnace</h3></div>
+                <div class="panel-body">
+                    <legend>Reported Visible Leak</legend>
+                    
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <label class="radio-inline">
+                              <input type="radio" ng-model="built1"  value="Yes" required> Yes
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" ng-model="built1" value="No" required> No
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" ng-model="built1" value="Dont Know" required> Dont Know
+                            </label>
+                             <label class="radio-inline">
+                              <input type="radio" ng-model="built1" value="Not Assessed" required> Not Assessed
+                            </label>
+							<span class="label label-warning" data-ng-show="submitted && radio">Required!</span>
+                       
+                        </div>
+                        <div class="clear"></div>
+                         <button class="btn btn-info" onclick="HHCamera.takePicture('B6-1')"><span class="glyphicon glyphicon-camera" style="font-size: 48px;"></span></button>
+                    
+                        <div id="B6-1-image-area" display="inline"></div>
+                     <legend> Exhaust properly attached</legend>
+                    
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <label class="radio-inline">
+                              <input type="radio" ng-model="built2"  value="Yes" required> Yes
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" ng-model="built2" value="No" required> No
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" ng-model="built2" value="Dont Know" required> Dont Know
+                            </label>
+                             <label class="radio-inline">
+                              <input type="radio" ng-model="built2" value="Not Assessed" required> Not Assessed
+                            </label>
+							<span class="label label-warning" data-ng-show="submitted && radio1">Required!</span>
+                        
+                        </div>
+
+                        <div class="clear"></div>
+                        <button class="btn btn-info" onclick="HHCamera.takePicture('B6-2')"><span class="glyphicon glyphicon-camera" style="font-size: 48px;"></span></button>
+                    
+                        <div id="B6-2-image-area" display="inline"></div>
+                     <legend>Gas Detected from main gas line to appliance</legend>
+                    
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <label class="radio-inline">
+                              <input type="radio" ng-model="built3"  value="Yes" required> Yes
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" ng-model="built3" value="No" required> No
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" ng-model="built3" value="Dont Know" required> Dont Know
+                            </label>
+                             <label class="radio-inline">
+                              <input type="radio" ng-model="built3" value="Not Assessed" required> Not Assessed
+                            </label>
+							<span class="label label-warning" data-ng-show="submitted && radio2">Required!</span>
+                        </div>
+                         
+                        <div class="clear"></div>
+                         <button class="btn btn-info" onclick="HHCamera.takePicture('B6-3')"><span class="glyphicon glyphicon-camera" style="font-size: 48px;"></span></button>
+                    
+                        <div id="B6-3-image-area" display="inline"></div>
+                     <legend>Exhaust vent flow(dragon puffer)</legend>
+                    
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <label class="col-sm-6 b6">After 45 sec
+                              <input type="text" class="form-control" ng-model="built4" > 
+                            </label>
+                            <label class="col-sm-6 b6"> After 60sec
+                              <input type="text" class="form-control" ng-model="built5" >  
+                            </label>
+                            <div class="clear"></div>
+                            <label class="radio-inline">
+                              <input type="radio" ng-model="built6" value="Dont Know" > Dont Know
+                            </label>
+                             <label class="radio-inline">
+							<input type="radio" ng-model="built6" value="Not Assessed" > Not Assessed
+                            </label>
+							
+                        </div>
+                        <div class="clear"></div>
+                         <button class="btn btn-info" onclick="HHCamera.takePicture('B6-vent')"><span class="glyphicon glyphicon-camera" style="font-size: 48px;"></span></button>
+                    
+                        <div id="B6-vent-image-area" display="inline"></div>
+                     <legend> CO Monitor~2-4" from opening in draft hood</legend>
+                    
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <label class="col-sm-6 b6">After 45 sec
+                              <input type="text" class="form-control" ng-model="built7" > ppm
+                            </label>
+                            <label class="col-sm-6 b6"> After 60sec
+                              <input type="text" class="form-control" ng-model="built8" > ppm
+                            </label>
+                            <div class="clear"></div>
+                            <label class="radio-inline">
+                              <input type="radio" ng-model="built9" value="Dont Know" > Dont Know
+                            </label>
+                             <label class="radio-inline">
+							<input type="radio" ng-model="built9" value="Not Assessed" > Not Assessed
+                            </label>
+							
+                        </div>
+                        <div class="clear"></div>
+                        <button class="btn btn-info" onclick="HHCamera.takePicture('B6-CO')"><span class="glyphicon glyphicon-camera" style="font-size: 48px;"></span></button>
+                    
+                        <div id="B6-CO-image-area" display="inline"></div>
+                        </div>
+                    </div>
+        </fieldset>
+        <ul class="pager">
+            <li><a id="myLink" href="building_char_b4b5.html">Previous</a></li>
+            <li><a id="myLink" href="" ng-click="next('building_char_b7.html')">Next</a></li>
+        </ul>
+            
+    </form>
+    
+    </div>    
+</div>   
+<script>
+        HHCamera.loadImages('B6-1');
+        HHCamera.loadImages('B6-2');
+        HHCamera.loadImages('B6-3');
+        HHCamera.loadImages('B6-vent');
+        HHCamera.loadImages('B6-CO');
+    </script> 
+</body>
+</html>

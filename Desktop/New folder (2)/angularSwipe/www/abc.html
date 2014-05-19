@@ -1,0 +1,31 @@
+<html>
+<head>
+<link href="js/lib/css/bootstrap.min.css" rel="stylesheet">
+        
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/lib/js/bootstrap.min.js"></script>
+<script src="checklist-model.js"></script>
+
+</head>
+<body>
+<script>
+  function Ctrl($scope) {
+    $scope.color = 'blue';
+    $scope.specialValue = {
+      "id": "12345",
+      "value": "green"
+    };
+  }
+</script>
+<form name="myForm" ng-controller="Ctrl">
+  <input type="radio" ng-model="color" value="red">  Red <br/>
+  <input type="radio" ng-model="color" ng-value="specialValue"> Green <br/>
+  <input type="radio" ng-model="color" value="blue"> Blue <br/>
+  <tt>color = {{color | json}}</tt><br/>
+ </form>
+</body>
+</html>

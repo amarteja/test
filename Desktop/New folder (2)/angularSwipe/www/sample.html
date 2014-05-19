@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="HealthyHomes">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Healthy Homes Inspector Application</title>
+
+	<!-- Bootstrap -->
+	<link href="js/lib/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="js/lib/css/app.css">
+	
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="checklist-model.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+
+    //stick in the fixed 100% height behind the navbar but don't wrap it
+    $('#slide-nav.navbar .container').append($('<div id="navbar-height-col"></div>'));
+
+    // Enter your ids or classes
+    var toggler = '.navbar-toggle';
+    var pagewrapper = '#page-content';
+    var navigationwrapper = '.navbar-header';
+    var menuwidth = '100%'; // the menu inside the slide menu itself
+    var slidewidth = '80%';
+    var menuneg = '-100%';
+    var slideneg = '-80%';
+
+
+    $("#slide-nav").on("click", toggler, function (e) {
+
+        var selected = $(this).hasClass('slide-active');
+
+        $('#slidemenu').stop().animate({
+            left: selected ? menuneg : '0px'
+        });
+
+        $('#navbar-height-col').stop().animate({
+            left: selected ? slideneg : '0px'
+        });
+
+        $(pagewrapper).stop().animate({
+            left: selected ? '0px' : slidewidth
+        });
+
+        $(navigationwrapper).stop().animate({
+            left: selected ? '0px' : slidewidth
+        });
+
+
+        $(this).toggleClass('slide-active', !selected);
+        $('#slidemenu').toggleClass('slide-active');
+
+
+        $('#page-content, .navbar, body, .navbar-header').toggleClass('slide-active');
+
+
+    });
+
+
+    var selected = '#slidemenu, #page-content, body, .navbar, .navbar-header';
+
+
+    $(window).on("resize", function () {
+
+        if ($(window).width() > 767 && $('.navbar-toggle').is(':hidden')) {
+            $(selected).removeClass('slide-active');
+        }
+
+
+    });
+
+
+
+
+});
+	</script>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav">
+  <div class="container">
+   <div class="navbar-header">
+    <a class="navbar-toggle"> 
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </a>
+    <a class="navbar-brand" href="#">Project name</a>
+   </div>
+   <div id="slidemenu">
+     
+          <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="search" placeholder="search" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+     
+    <ul class="nav navbar-nav">
+     <li class="active"><a href="#">Home</a></li>
+     <li><a href="#about">About</a></li>
+     <li><a href="#contact">Contact</a></li>
+     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+       <li><a href="#">Action</a></li>
+       <li><a href="#">Another action</a></li>
+       <li><a href="#">Something else here</a></li>
+       <li class="divider"></li>
+       <li class="dropdown-header">Nav header</li>
+       <li><a href="#">Separated link</a></li>
+       <li><a href="#">One more separated link</a></li>
+       <li><a href="#">Action</a></li>
+       <li><a href="#">Another action</a></li>
+       <li><a href="#">Something else here</a></li>
+       <li class="divider"></li>
+       <li class="dropdown-header">Nav header</li>
+       <li><a href="#">Separated link</a></li>
+       <li><a href="#">One more separated link</a></li>
+       <li><a href="#">Action</a></li>
+       <li><a href="#">Another action</a></li>
+       <li><a href="#">Something else here</a></li>
+       <li class="divider"></li>
+       <li class="dropdown-header">Nav header</li>
+       <li><a href="#">Separated link test long title goes here</a></li>
+       <li><a href="#">One more separated link</a></li>
+      </ul>
+     </li>
+    </ul>
+          
+   </div>
+  </div>
+ </div>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/lib/js/bootstrap.min.js"></script>
+	</body>
+	</html>
